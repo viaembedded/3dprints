@@ -171,7 +171,7 @@ mouse_ear_thickness=0.32*2;
 //how large the flat discs that make the mouse ears are (5 to 15 generally work well)
 mouse_ear_radius=5;
 //the layout of the parts
-layout="bottom";//[beside, stacked, top, bottom]
+layout="beside";//[beside, stacked, top, bottom]
 //how far apart the 2 halves are in the "beside" layout
 separation=2;
 //how much of an overlap (-ve) or gap (+ve) is there between the inner and outer lip surfaces, a value of 0 implies they meet perfectly in the middle
