@@ -26,7 +26,7 @@ Next the user can modify the data structures that create holes, posts and text o
 		format for each post [face_name, shape_name shape_position[x_pos,y_pos,x_offs,y_offs,rotate,align], shape_size[depth,,,]]
 	3. The engraved text used on the packaging (text=[[]])
 		format for each piece of text [face_name, text_to_write, shape_position[x_pos,y_pos,x_offs,y_offs,rotate,align], shape_size[depth,font_height,font_spacing,mirror]] Note: for silly reasons mirror must be 0 or 1 corresponding to false and true in this version
-	
+
 	Which of the 6 sides of the packaging do you want this feature on? (face_name, T,B,N,E,W,S)
 		"T", The Top or Z+ face
 		"B", The Bottom or Z- face
@@ -42,7 +42,7 @@ Next the user can modify the data structures that create holes, posts and text o
 		rotate, how much do you want the object rotated in degrees
 			if you do not use any of the above please set them to 0! do not just leave them empty!
 		align, do you want the object aligned with the "inside" or the "outside" of the packaging face
-		
+
 	What shape do you want? (shape_name, Cone/Ellipse/Cylinder/Round_Rect/Square/Rectangle/Nub_Post/Dip_Post/Hollow_Cylinder)
 	What are the shape's dimensions (shape_size[depth,,,])...you will need to read the section below as they are different for each shape
 		"Square" shape_size[depth, length_breadth]
@@ -81,12 +81,12 @@ Date 2013-03-28
 Warning:
 	Some combinations of values, shapes and locations etc. may lead to an invalid or non-manifold shape beign created, preventing you from exporting a .stl
 	If this happens try to remove or change some of the features or values until you get a valid shape and then add them back gradually until you find the offending item, then change it so it doesn't cause a problem
-	
+
 	Note: This thing uses  HarlanDMii's"write.scad" module http://www.thingiverse.com/thing:16193
 	which you will need to have downloaded and located in the directory if you want to run this on your PC
-	
+
 	Generating text can be very slow!
-	
+
 	When generating a stacked layout it may look like the top is taller than it should be, this seems to be a visualisation bug in OpenSCAD, if you create a .STL it will be perfect
 @note
 Changes from previous versions:
@@ -138,7 +138,7 @@ based on My own structure
  - 	pos_x and pos_y are chosen to align with views taken from the North, Top or East faces towards the origin so that they are aligned with [-x,+z], [+x,+y] & [+y,+z] respectively
  - 	rotation is clockwise about the plane of the North, Top or East faces as lookign towards the origin this means they are anticlockwise for the opposite faces(i.e. same convention as above)
  - 	these 2 conventiosn are chosen to make it easier to position cutouts that align with oppsite sides. e.g. a box that fits around a rotated ellipse pipe
-	
+
 v2.1 2013-03-22 (AKA cutouts_on_faces_for_loop-v0_1.scad)
  - based on kitlaan's array structure, supporting cones and rectangles
  - from kitlaan's Customisable Electronic Device Packaging http://www.thingiverse.com/thing:8607
@@ -183,14 +183,14 @@ holes = [ //format [face_name, shape_name, shape_position[x_pos,y_pos,x_offs,y_o
 	// ["N", "Ellipse",	[10,14,-box_l/2,-box_h/2,10,"outside"],	[1,8,12,20]		],//aligned to bottom left corner
 	// ["S", "Ellipse",	[10,14,-box_l/2,-box_h/2,10,"inside"],	[1,8,12,20]		],
 	// ["E", "Cylinder",	[-1,-8,0,0,0,"inside"],					[4,2,10]		],
-	
+
 	// Network Port side
 	["N", "Rectangle",	[35.5,-0.25,0,0,0,"outside"],				[4,18,11.5,2,10]	],
 	// Network Port side - small
 	["N", "Round_Rect",	[-11,0,1,0,0,"outside"],				[4,67,7,2,10]	],
 	//["N", "Round_Rect",	[-11,0,1,0,0,"outside"],				[4,67,7.5,2,10]	],
 	//["N", "Round_Rect",	[0,2,1,-2,0,"outside"],				[4,87,12,2,4]	],
-		
+
 	// Power Button
 	["S", "Cylinder",	[-40.75,1,-4.15,0,0,"outside"],				[4,4.5,30,2,4]	],
 	// LED
@@ -211,7 +211,7 @@ holes = [ //format [face_name, shape_name, shape_position[x_pos,y_pos,x_offs,y_o
 //	["W", "Cylinder",		[-5.2, -4-2,0,0,90,"inside"],				[wall_t, 1.5, 5]			],//Battery Charged Green LED
 //	["E", "Cylinder",		[-3, -4,0,0,90,"inside"],				[wall_t, 1.5, 5]			],//Battery Warning Red LED
 //	["E", "Cylinder",		[-3, 6,0,0,-90,"inside"],				[wall_t, 1.5, 5]			]//TxRx Red LED
-	
+
 	];
 
 //data structure defining all the internal supporting structures used on the packaging
@@ -240,7 +240,7 @@ posts = [ //format [face_name, shape_name shape_position[x_pos,y_pos,x_offs,y_of
 	//Posts for extension board
 	["B", "Dip_Post",	[-47.2,-23.3-7.54,0,0,0,"inside"],				[2.05,3.1,1.25,1.7,26]		],
 	["B", "Dip_Post",	[47.2,-23.3-7.54,0,0,0,"inside"],				[2.05,3.1,1.25,1.7,26]		],
-	// Extension Board 
+	// Extension Board
 	["B", "Dip_Post",	[-47.2,-23.5-19,0,0,0,"inside"],				[1.95,3.1,1.25,1.7,26]		],
 	["B", "Dip_Post",	[47.2-10.2,-23.5-15.7,0,0,0,"inside"],				[1.95,3.1,1.25,1.7,26]	],
 	//["B", "Nub_Post",	[11,14.4,0,0,30,"inside"],				[4.3,2.5,0.5,1.7,6]		],
@@ -266,7 +266,7 @@ text = [//recessed text on faces [face_name, text_to_write, shape_position[x_pos
 	];
 //data structure defining external items such as .stl files to import
 items =[//external items on faces [face_name, external_file, shape_position[x_pos,y_pos,x_offs,y_offs,rotate,align], shape_size[depth, scale_x,scale_y, scale_z, mirror]] Note: for silly reasons mirror must be 0 or 1 corresponding to false and true in this version
-//["T", "VAB.stl",			[0,0,0,0,0,"inside"], 					[1,1,1,1,1]],	
+//["T", "VAB.stl",			[0,0,0,0,0,"inside"], 					[1,1,1,1,1]],
 	];
 
 /* [Hidden] */
@@ -284,7 +284,7 @@ mouse_ears=[has_mouseears, mouse_ear_thickness, mouse_ear_radius];
 box=[box_l,box_b,box_h,corner_radius,corner_sides,wall_t];//
 
 
-	
+
 use<write.scad>;
 
 
@@ -295,7 +295,7 @@ use<write.scad>;
 
 module make_box(box, corner_radius=3, corner_sides=5, lip_h=2, lip_fit=0, top_bottom_ratio=0.5,mouse_ears=[false],layout="beside", separation=2, holes=[], posts=[], text=[], items=[]){
 	echo("layout", layout);
-	
+
 	//echo("holes",holes);
 	//echo ("variables",corner_radius, corner_sides, lip_h, top_bottom_ratio,has_mouseears,layout, separation);
 	translate(v=[0,0,box[2]/2]){
@@ -352,7 +352,7 @@ module half_box(box, corner_radius=3, corner_sides=5, lip_h=2, lip_fit=0, top_bo
 					translate(v=[0,0,lip_h/2 - box[2]/2 ])rounded_rectangle_cylinder_hull(box[0]-(box[5]-lip_fit),box[1]-(box[5]-lip_fit),lip_h+0.01,corner_radius-(box[5]-lip_fit)/2,corner_sides);//cutout for lips
 					//translate(v=[0,0,lip_h/2 - box[2]/2 ])rounded_rectangle_cylinder_hull(box[0]-box[5][0],box[1]-box[5][1],lip_h+0.01,corner_radius-(box[5][0]+box[5][1])/4,corner_sides);
 					translate(v=[0,0,lip_h+cutaway_extra/2]) cube(size=[box[0]+2*cutaway_extra,box[1]+2*cutaway_extra,box[2]+cutaway_extra], center=true);//need to oversize this using cutaway_extra so it gets any extra material on the side the be removed on the outside (from posts)
-					
+
 				}
 				#make_cutouts(box, holes);//remove the material for the cutouts// because this happens at the end you can make a hole in the centre of a post! perhaps a cone for a countersink screw through hole
 				make_text(box, text);//text
@@ -361,7 +361,7 @@ module half_box(box, corner_radius=3, corner_sides=5, lip_h=2, lip_fit=0, top_bo
 			//make_posts(box, posts);
 			mouse_ears(box,mouse_ear_thickness,mouse_ear_radius, has_mouse_ears);
 		}
-		
+
 	}else if (which_half=="top") color("crimson") {
 		echo("top half");
 		union(){
@@ -390,7 +390,7 @@ module half_box(box, corner_radius=3, corner_sides=5, lip_h=2, lip_fit=0, top_bo
 			//make_posts(box,posts);
 			rotate(a=[180,0,0])mouse_ears(box,mouse_ear_thickness,mouse_ear_radius, has_mouse_ears);
 		}
-		
+
 	}else{
 		echo("invalid half requested",which_half);
 	}
@@ -425,7 +425,7 @@ module make_cutouts(box, holes){
 	x_pos = 0;
 	y_pos = 0;
 	face = "X";
-	
+
 	echo("len(holes)",len(holes));
 	for (j=[0:len(holes)-1]){
 		// assign (angle = i*360/20, distance = i*10, r = i*2)
@@ -569,10 +569,10 @@ module make_shape(shape, shape_data){
 	//shape_data=[4,5,4,8];//[4,8,12,20];//[4,2,10];//[4,10,8,2,4];//[5,10];//[2,4,15];
 	if(shape=="Square"){//[depth, length_breadth]
 		cube(size=[shape_data[1],shape_data[1],shape_data[0]+a_bit],center=true);//do thing for square
-		
+
 	}else if(shape=="Rectangle"){//[depth, length, breadth]
 		cube(size=[shape_data[1],shape_data[2],shape_data[0]+a_bit],center=true);//do thing for rectangle
-		
+
 	}else if(shape=="Round_Rect"){//[depth, length, breadth, corner_radius, corner_sides]
 		rounded_rectangle_cylinder_hull(shape_data[1],shape_data[2],shape_data[0]+a_bit, shape_data[3], shape_data[4]);
 		/*hull(){
@@ -583,13 +583,13 @@ module make_shape(shape, shape_data){
 		}*/
 	}else if(shape=="Cylinder"){ //(depth, radius ,sides)
 		cylinder(r=shape_data[1],h=shape_data[0]+a_bit,center=true, $fn=shape_data[2]);//do thing for cylinder
-		
+
 	}else if(shape=="Ellipse"){ //(depth, radius_length, radius_breadth, sides)
 		scale (v=[shape_data[1],shape_data[2],1])cylinder(r=1,h=shape_data[0]+a_bit,center=true, $fn=shape_data[3]);//do thing for ellipse
-		
+
 	}else if(shape=="Cone"){ //(depth, radius_bottom, radius_top ,sides)
 		cylinder(r1=shape_data[1],r2=shape_data[2],h=shape_data[0]+a_bit,center=true, $fn=shape_data[3]);//do thing for cone
-		
+
 	}else if(shape=="Nub_Post"){ //(depth, radius_bottom, radius_top , depth_nub, sides)
 		union(){
 			echo ("make nub",shape_data);
@@ -598,7 +598,7 @@ module make_shape(shape, shape_data){
 			//translate(v=[0,0,(shape_data[0]-shape_data[3])/2]) cylinder(r=min(shape_data[2],shape_data[1]), h=shape_data[0]+a_bit,center=true, $fn=shape_data[3]);//do thing for cylinder inside
 			translate(v=[0,0,(-shape_data[0]+shape_data[3])/2]) cylinder(r=shape_data[2], h=shape_data[0]+a_bit,center=true, $fn=shape_data[4]);//do thing for cylinder inside
 		}
-		
+
 	}else if(shape=="Dip_Post"){ //(depth, radius_bottom, radius_top ,depth_dip, sides)
 		difference(){
 			echo("dip_post",shape_data);
